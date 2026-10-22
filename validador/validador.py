@@ -1,3 +1,6 @@
+CARACTERES_ESPECIALES = "!@#$%^&*"
+
+
 def validar_password(pwd):
     errores = []
     if len(pwd) < 8:
@@ -8,6 +11,6 @@ def validar_password(pwd):
         errores.append("Al menos una minúscula")
     if not any(c.isdigit() for c in pwd):
         errores.append("Al menos un dígito")
-    if not any(c in "!@#$%^&*" for c in pwd):
+    if not any(c in CARACTERES_ESPECIALES for c in pwd):
         errores.append("Al menos un carácter especial (!@#$%^&*)")
     return {"valida": len(errores) == 0, "errores": errores}
